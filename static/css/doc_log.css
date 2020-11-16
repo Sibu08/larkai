@@ -1,0 +1,309 @@
+
+    html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        /* background: #f2306a;
+        background: -moz-linear-gradient(left, #f2306a 0%, #6d00a0 100%);
+        background: -webkit-linear-gradient(left, #f2306a 0%, #6d00a0 100%);
+        background: linear-gradient(to right, #f2306a 0%, #6d00a0 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2306a', endColorstr='#6d00a0', GradientType=1); */
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: white;
+        outline:0;
+    }
+
+    button:focus {
+        outline:0;
+    }
+
+    input:focus {
+        outline:0;
+    }
+
+    .loginForm {
+        position: absolute;
+        height: 382px;
+        width: 600px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* background-color: #050023; */
+        color: white;
+        border-radius: 10px;
+        font-family: 'Lato', sans-serif;
+        font-weight: bold;
+        box-shadow: 14px 14px 6px #0c0a0a7a;
+    }
+    #gender{
+        height: 35px;
+    position: relative;
+    height: 35px;
+    width: 282%;
+    padding-left: 33px 9%;
+    /* background: #050023; */
+    /* color: white; */
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 2px solid #2B3993;
+    }
+
+    .formHead {
+        height: 3%;
+    width: 27%;
+    text-align: center;
+    /* background: rgba(5, 191, 248, 0.87); */
+    margin: -58px 0px 14% 38%;
+    border-radius: 100%;
+    }
+
+    .logo {
+        /* padding-top: 35px; */
+        /* font-size: 50px; */
+    }
+    
+    .logo span {
+        color: #050023;
+        font-size: 32px;
+    }
+
+    .formBody {
+
+    }
+
+    .formInput {
+        margin: 5%;
+    }
+
+    .formInput div {
+        font-size: 22px;
+        margin-bottom: 8px;
+        text-align: center;
+        color: #2B3993;
+    }
+
+    .formInput input {
+        position: relative;
+        height: 35px;
+        width: 90%;
+        padding: 0 5%;
+        /* background: #050023; */
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 4px;
+        border: 2px solid  #2B3993;
+    }
+    
+    .formInput input:focus {
+        border: 2px solid #007ACC;
+    }
+
+    .rememberMe {
+        margin: 8% 5%;
+    }
+
+    .loginButton {
+        /* margin-top: 12%; */
+        text-align: center;
+    }
+
+    .loginButton button {
+        padding: 18px 70px;
+	font-size: 16px;
+        background-color: #05A4AB;
+        color: white;
+        font-family: Abhaya Libre Regular;
+        border: 0;
+        border-radius: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .forgotPass {
+        margin-top: 4%;
+        text-align: center;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"]+label:before {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        margin: 0 2% 0 0;
+        border: 2px solid #ff0067;
+        border-radius: 4px;
+        cursor: pointer;
+        vertical-align: middle;
+        content: "\00a0";
+    }
+
+    input[type="checkbox"]:checked+label:before {
+        background: #ff0067;
+        color: #050023;
+        font-size: 12px;
+        text-align: center;
+        content: "\2713";
+    }
+
+    input[type="checkbox"]:checked+label:after {
+        font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+        .loginForm {
+            height: 400px;
+            width: 300px;
+            top: 54%;
+        }
+        .formHead {
+            height: 28%;
+        }
+        .logo {
+            padding-top: 30%;
+        }
+        .loginButton {
+            margin-top: 0%;
+        }
+    }
+
+    /*loader*/
+    #preloader {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #881228;
+        z-index: 11000;
+        position: fixed;
+        display: block;
+    }
+
+    .pulse {
+        height: 150px;
+        width: 310px;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .pulse:after {
+        content: '';
+        display: block;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300px 100px" enable-background="new 0 0 300px 100px" xml:space="preserve"><polyline fill="none" stroke-width="3px" stroke="white" points="2.4,58.7 70.8,58.7 76.1,46.2 81.1,58.7 89.9,58.7 93.8,66.5 102.8,22.7 110.6,78.7 115.3,58.7 126.4,58.7 134.4,54.7 142.4,58.7 197.8,58.7 "/></svg>') 0 0 no-repeat;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        -webkit-animation: 2s pulse linear infinite;
+        animation: 2s pulse linear infinite;
+        clip: rect(0, 0, 100px, 0);
+        background-position: 50px 0px;
+    }
+    .pulse:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 2px;
+        right: 2px;
+        bottom: 0;
+        top: 16px;
+        margin: auto;
+        height: 3px;
+    }
+
+    .pulse h3{
+        color: #ffffff;
+        font-family: 'Engagement', cursive;
+        font-size: 38px;
+    }
+
+
+    @-webkit-keyframes pulse {
+    0% {
+        clip: rect(0, 0, 100px, 0);
+        opacity: 0.4;
+    }
+    4% {
+        clip: rect(0, 66.66667px, 100px, 0);
+        opacity: 0.6;
+    }
+    15% {
+        clip: rect(0, 133.33333px, 100px, 0);
+        opacity: 0.8;
+    }
+    20% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity: 1;
+    }
+
+    80% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity:0;
+    }
+
+    90% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity: 0;
+    }
+
+    100% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity:0;
+    }
+    }
+    @keyframes pulse {
+    0% {
+        clip: rect(0, 0, 100px, 0);
+    }
+    4% {
+        clip: rect(0, 66.66667px, 100px, 0);
+    }
+    15% {
+        clip: rect(0, 133.33333px, 100px, 0);
+    }
+    20% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity:1;
+    }
+
+    80% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity:0;
+    }
+
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        clip: rect(0, 300px, 100px, 0);
+        opacity:0;
+    }
+    
+    }
+
+    .pulse {
+        text-align : center;
+    }
+    .pulse i{
+        color: #ffffff;
+        font-size: 38px;
+    }

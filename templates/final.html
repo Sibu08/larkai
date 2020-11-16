@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Report</title>
+    <link rel="stylesheet" href="{%static 'css/final.css'%}">
+    <link rel="stylesheet" href="{%static 'css/main1.css'%}">
+    <script src="{%static 'js/jquery.min.js'%}"></script>
+    <script src="{%static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <style>
+        .top-bar{
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px 0px, rgb(218, 220, 224) 0px -1px 0px 0px inset;
+            height: 50px;
+        }
+        .dtm{
+            display: flex;
+            flex-direction: column;
+            font-size: 11px;
+            font-family: cursive;
+            margin-top: 4px;;
+        }
+        #data{
+            height: 70px;
+	    margin-right: 1%;
+        }
+        .output{
+            display: flex;
+            flex-wrap: wrap;
+            width: 600px;
+            justify-content: flex-end;
+	    margin-left: 1%;
+	    margin-top: 1%;
+            
+        }
+        #data>li{
+            display: inline;
+        }
+        .heading>h1{
+            font-size: 25px;
+        }
+        .report-img{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            /*align-items: center;*/
+            margin-left: 3%;
+        }
+        .report-img>img{
+            width: 780px;
+            height: 100px;
+        }
+        li{
+            list-style: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- LOADER -->
+    <!-- <div id="preloader">
+        <div class="preloader pulse">
+            <h3>Generating report<br> please wait....</h3>
+        </div>
+    </div> -->
+    <!-- END LOADER -->
+
+    <!-- <div class="top-bar">
+        <div class="logo">
+            <img src="{% static 'img/logo.svg' %}">
+        </div>
+        <div class="heading">
+            <h1>Cardiomate <span><img style="height: 36px; 
+                padding-top: 17px;" src="{% static 'img/heart.svg' %}" alt="heart-logo"></span></h1>
+        </div>
+        <div class="dtm">   
+            <div class="date" id="printDate"></div>
+            <div class="date" id="printDay"></div>
+            <div class="date" id="printTime"></div>
+        </div>
+    </div> -->
+    <div class="report-img">
+        <img src="{%static 'img/1.png' %}" style="border: 2px solid #2B3993;height:375px;width:675px;margin-top:1%">
+        
+        <div class="values">
+            <ul id="data">
+                <div class="params"><li>PR</li><p id="pr">32</p></div>
+                <div class="params"><li>RR</li><p id="rr">32</p></div>
+                <div class="params"><li>BPM</li><p id="bpm">32</p></div>
+                <div class="params"><li>QRS</li><p id="qrs">32</p></div>
+                <div class="params"><li>QT</li><p id="qt">32</p></div>
+                <div class="params"><li>QTC</li><p id="qtc">32</p></div>
+                <div class="params"><li>S1</li><p id="s1">32</p></div>
+                <div class="params"><li>S2</li><p id="s2">32</p></div>
+                <div class="params"><li>S1-S2</li><p id="st">32</p></div>
+                <div class="params"><li>Status</li><p id="status">Bradycardia</p></div>
+            </ul>
+            <div class="output">
+                <!-- <div class="disease">
+                    <h1 style="color: orange;">Report: </h1>
+                    <h2>Heart Attack</h2>
+                </div> -->
+                    <iframe id="pdf" name="pdf" style="display: none;" src="{% static '/report.pdf' %}"></iframe>
+                    <div class="button">
+                        <button id="print" onclick="printPDF()" value="print" class="btn btn--radius-2 btn--blue"  type="submit" style="font-family: Abhaya Libre Regular;font-size: 24px;">Print</button>
+                        <button id="reload" class="btn btn--radius-2 btn--blue" type="submit"><a  href='/home' style="text-decoration: none;color:white;font-family: Abhaya Libre Regular;;font-size: 24px;">Reload</a></button>
+                    </div> 
+            </div>            
+        </div>
+    </div>
+    <script>
+        console.log('Final page')
+        fetch("../static/js/info.json")
+            .then(function(resp){
+                return resp.json()
+            })
+            .then(function (jdata){
+                console.log(jdata)
+                document.getElementById('bpm').innerHTML=jdata.BPM
+                document.getElementById('qrs').innerHTML=jdata.QRS_Complex
+                document.getElementById('rr').innerHTML=jdata.RR_Interval
+                document.getElementById('qt').innerHTML=jdata.QT_Interval
+                document.getElementById('qtc').innerHTML=jdata.QTC
+                document.getElementById('s1').innerHTML=jdata.S1_Width
+                document.getElementById('s2').innerHTML=jdata.S2_Width
+                document.getElementById('st').innerHTML=jdata.ST_Segment
+                document.getElementById('pr').innerHTML=jdata.PR_Interval
+            })
+	let printPDF = () => {
+    		let objFra = document.getElementById('pdf');
+        	objFra.contentWindow.print();
+    	}
+    </script>
+    <div>
+        {% for message in messages %}
+            <h3 style="color: black;">Report of {{message}} :</h3>
+        {%endfor%}
+    </div>
+    <!-- <div class="values">
+        <ul id="data">
+            <div class="params"><li>PR</li><p id="pr">32</p></div>
+            <div class="params"><li>RR</li><p id="rr">32</p></div>
+            <div class="params"><li>BPM</li><p id="bpm">32</p></div>
+            <div class="params"><li>QRS</li><p id="qrs">32</p></div>
+            <div class="params"><li>QT</li><p id="qt">32</p></div>
+            <div class="params"><li>QTC</li><p id="qtc">32</p></div>
+            <div class="params"><li>S1</li><p id="s1">32</p></div>
+            <div class="params"><li>S2</li><p id="s2">32</p></div>
+            <div class="params"><li>S1-S2</li><p id="st">32</p></div>
+        </ul>
+        <iframe id="pdf" name="pdf" style="display: none;" src="{% static 'C:/Users/Administrator/Desktop/larkai/static/report.pdf' %}"></iframe>
+        <div class="button">
+            <button id="print" onclick="printPDF()" value="print" class="btn btn--radius-2 btn--blue"  type="submit">Print</button>
+            <button id="reload" class="btn btn--radius-2 btn--blue" type="submit"><a  href='/home' style="text-decoration: none;color:white;">Reload</a></button>
+        </div>
+        
+    </div> -->
+    <div class="">
+
+    </div>
+    <!-- <script src="{% static 'js/newdate.js' %}"></script> -->
+
+</body>
+
+</html>

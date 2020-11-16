@@ -1,0 +1,272 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | LarkAI</title>
+    
+    <script src="{%static 'js/jquery.magnific-popup.min.js'%}"></script>
+    <script src="{%static 'js/jquery.min.js'%}"></script>
+    <link href="{%static 'css/keyboard-dark.css' %}" rel="stylesheet">
+    <script src="{%static 'js/jquery.keyboard.js' %}"></script>
+    <link href="{%static 'css/keyboard-previewkeyset.css' %}" rel="stylesheet">
+    <script src="{%static 'js/jquery.keyboard.extension-all.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- <link href="{%static 'css/main1.css'%}" rel="stylesheet" media="all"> -->
+    <!-- <link rel="stylesheet" href="{%static 'css/home.css'%}"> -->
+    <link rel="stylesheet" href="{%static 'css/doc_reg2.css'%}" />
+    <link rel="stylesheet" href="{%static 'css/doc_log.css'%}" />
+    
+    <style>
+        .logo>img {
+            height: 59px;
+        }
+        .top-bar{
+            height: 50px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 6px 0px, rgb(218, 220, 224) 0px -1px 0px 0px inset;
+        }
+        .heading{
+            font-family: 'Quicksand', sans-serif;
+            margin-top: 1%;
+        }
+        .heading>h1{
+            font-size: 25px;
+            font-weight: 700;
+            color: #0b5fa5;
+        }
+        .dtm{
+            display: flex;
+            flex-direction: column;
+            font-size: 11px;
+            font-family: cursive;
+            margin-top: 4px;
+        }
+        .date{
+            color: black;
+            font-size: 15px;
+        }
+        
+        .card-body,.title{
+            background-color: #3EECAC;
+            background-image: linear-gradient(19deg, #3EECAC 0%, #EE74E1 100%);
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- LOADER -->
+    <!-- <div id="preloader">
+        <div class="preloader pulse">
+            <h3>Welcome to your clinic 🙏</h3>
+        </div>
+    </div> -->
+    <!-- END LOADER -->
+    <!-- <div class="top-bar">
+        <div class="logo">
+            <img src="{% static 'img/logo.svg' %}">
+        </div>
+        <div class="heading">
+            <h1>Cardiomate <span><img style="height: 25px;" src="{% static 'img/heart.svg' %}" alt="heart-logo"></span></h1>
+        </div>
+        <div class="dtm">
+            <div class="date" id="printDate"></div>
+            <div class="date" id="printDay"></div>
+            <div class="date" id="printTime"></div>
+        </div>
+    </div> -->
+    
+    <!-- <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680" style="display: flex;justify-content: space-around;align-items: center;flex-wrap: wrap;">
+            <img style="height: 250px;" src="{% static 'img/login.svg' %}" alt="heart-logo"></img>
+            <div class="card card-4">
+                <div class="card-body" style="border-radius: 5%;">
+                    <h2 style="text-align: center;" class="title">Register Patient</h2>
+                    <form method="POST">
+                        {% csrf_token%}
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Full name</label>
+                                    <input style="color: #2B3993;" id="name" class="input--style-4" class="keyboard-init-focus" type="text" name="full_name">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Age</label>
+                                    <input style="color: #2B3993;" id="age" class="input--style-4" type="text" name="age">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                           
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" value="M" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio" value="F" name="gender">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone Number</label>
+                                    <input style="color: #2B3993;" id="phone" class="input--style-4" type="text" name="phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div>
+      
+        <div class="loginForm">
+          <div class="formHead">
+            <div style="text-align: center;" class="logo">
+              <span
+                ><img
+                  style="height: 65px;margin-top:10%; justify-items: center"
+                  src="{% static 'img/heart.svg' %}"
+                  alt="heart-logo"
+              /></span>
+            </div>
+          </div>
+          <h1 style="text-align: center;color:#ED4D53;font-family: 'Alegreya', serif;">Patient Registration</h1>
+          <div class="formBody">
+            <div>
+              <div class="name-email">
+                <div class="formInput">
+                  <div>Full name</div>
+                  <input style="color: #2B3993;" id="name" type="text" maxlength="35" />
+                </div>
+                <div class="formInput">
+                  <div>Age</div>
+                  <input style="color: #2B3993;" id="age" />
+                </div>
+              </div>
+              <div style="display:flex ;justify-content:space-between" class="gender-phone"> 
+                <div class="formInput">
+                  <div style="display: flex;">Gender</div>
+                  <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+		    <option value="others">Others</option>
+                  </select>
+                </div>
+                <div style="margin-left: 124px;padding-right: 6.2%;" class="formInput">
+                  <div>Phone Number</div>
+                  <input style="color: #2B3993;" id="phone" maxlength="30" />
+                </div>
+                
+              </div>
+              <div class="loginButton">
+                <a href="/reading" target="_self">
+                  <button>Register</button>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    <script>
+        console.log("Working")
+        $('#name').keyboard({
+            display: {
+                'bksp'   :  "\u2190",
+                'accept' : 'enter',
+                'normal' : 'ABC',
+                'meta1'  : '.?123',
+                'meta2'  : '#+='
+            },
+            layout: 'custom',
+	customLayout: {
+		'normal': [
+			'q w e r t y u i o p {bksp}',
+			'a s d f g h j k l {accept}',
+			'{s} z x c v b n m , . {s}',
+			'{meta1} {space} '
+		],
+		'shift': [
+			'Q W E R T Y U I O P {bksp}',
+			'A S D F G H J K L {accept}',
+			'{s} Z X C V B N M ! ? {s}',
+			'{meta1} {space}'
+		],
+		'meta1': [
+			'1 2 3 4 5 6 7 8 9 0 {bksp}',
+			'- / : ; ( ) \u20ac & @ {accept}',
+			'{meta2} . , ? ! \' " {meta2}',
+			'{normal} {space} '
+        ],
+        'meta2': [
+			'[ ] { } # % ^ * + = {bksp}',
+			'_ \\ | ~ < > $ \u00a3 \u00a5 {accept}',
+			'{meta1} . , ? ! \' " {meta1}',
+			'{normal} {space}'
+		]
+	}
+
+        })
+        $('#age').keyboard({
+            layout: 'custom',
+		customLayout: {
+			'normal' : [
+				'7 8 9',
+				'4 5 6',
+				'1 2 3',
+                '0 {bksp}', 
+                '{a} {c}'
+			]
+		},
+		maxLength : 3,
+		
+		// activate the "validate" callback function
+		acceptValid : true,
+		validate : function(keyboard, value, isClosing){
+			// only make valid if input is 6 characters in length
+			return 1<= value.length <= 3;
+		}
+        }).addTyping();
+        $('#phone').keyboard({
+            layout: 'custom',
+		customLayout: {
+			'normal' : [
+				'7 8 9',
+				'4 5 6',
+				'1 2 3',
+                '0 {bksp}', 
+                '{a} {c}'
+			]
+		},
+		maxLength : 10,
+		
+		// activate the "validate" callback function
+		acceptValid : true,
+		validate : function(keyboard, value, isClosing){
+			// only make valid if input is 6 characters in length
+			return value.length === 10;
+		}
+        }).addTyping();
+        
+        console.log("worked")
+    </script>
+   
+    <!-- <script src="{% static 'js/date.js' %}"></script> -->
+</body>
+</body>
+</html>

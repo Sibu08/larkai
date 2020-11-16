@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <script src="{%static 'js/jquery.min.js'%}"></script>
+        <link href="{%static 'css/keyboard-dark.css' %}" rel="stylesheet">
+        <script src="{%static 'js/jquery.keyboard.js' %}"></script>
+        <link href="{%static 'css/keyboard-previewkeyset.css' %}" rel="stylesheet">
+        <script src="{%static 'js/jquery.keyboard.extension-all.js' %}"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap" rel="stylesheet">
+        <script src="{%static 'js/jquery.magnific-popup.min.js'%}"></script>
+        <link rel="stylesheet" href="{%static 'css/doc_login.css'%}">
+        <link rel="stylesheet" href="{%static 'css/navbar.css'%}" />
+        <script src="{%static 'js/doc_log.js'%}"></script>
+        
+        <title>Cardiomate | Doctor Login</title>
+    </head>
+
+    <body>
+        <!-- LOADER -->
+        <!-- <div id="preloader">
+            <div class="preloader pulse">
+                {% for message in messages %}
+                <h3>Welcome,<br>Dr. {{message}} </h3>
+                {%endfor%}
+            </div>
+        </div> -->
+        <!-- END LOADER -->
+
+        <!-- <div class="top-bar">
+            <div class="clogo">
+              <img src="{% static 'img/logo.svg' %}" />
+            </div>
+            <div class="heading">
+              <h2>
+                Cardiomate
+                <span
+                  ><img
+                    style="height: 30px;"
+                    src="{% static 'img/heart.svg' %}"
+                    alt="heart-logo"
+                /></span>
+              </h2>
+            </div>
+            <div class="dtm">
+              <div class="date" id="printDate"></div>
+              <div class="date" id="printDay"></div>
+              <div class="date" id="printTime"></div>
+            </div>
+          </div> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,64L30,53.3C60,43,120,21,180,53.3C240,85,300,171,360,192C420,213,480,171,540,149.3C600,128,660,128,720,138.7C780,149,840,171,900,197.3C960,224,1020,256,1080,245.3C1140,235,1200,181,1260,186.7C1320,192,1380,256,1410,288L1440,320L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg> -->
+
+        <div>
+            <div class="loginForm">
+                <div class="formHead">
+                    <div class="logo"><span><img style="height: 65px; justify-items:center;padding-bottom: 8%;" src="{% static 'img/heart.svg' %}" alt="heart-logo" ></span></div>
+                </div>
+      <h1 style="text-align: center;
+      color: #ED4D53;font-family: 'Alegreya', serif;">Doctor Login</h1>
+
+                <div class="formBody">
+                    <div>
+                        <div class="formInput">
+                            <div>Username</div>
+                            <input style="color: #2B3993;" id="username" type="text" maxlength="35">
+                        </div>
+                        <div class="formInput">
+                            <div>Password</div>
+                            <input style="color: #2B3993;" id="pass" type="password" maxlength="30">
+                        </div>
+                        <div class="rememberMe">
+                            <input id="remember" type="checkbox" class="checkRemember">
+                            <label style="color:  #2B3993;" for="remember">Remember me</label>
+                        </div>
+                    </div>
+                    <div class="loginButton">
+                        <a href="/home" target="_self">
+                            <button>Login</button>
+                        </a>
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+        <script>
+            console.log("Working")
+            $('#username,#pass').keyboard({
+                display: {
+                    'bksp'   :  "\u2190",
+                    'accept' : 'enter',
+                    'normal' : 'ABC',
+                    'meta1'  : '.?123',
+                    'meta2'  : '#+='
+                },
+                layout: 'custom',
+        customLayout: {
+            'normal': [
+                'q w e r t y u i o p {bksp}',
+                'a s d f g h j k l {accept}',
+                '{s} z x c v b n m , . {s}',
+                '{meta1} {space} '
+            ],
+            'shift': [
+                'Q W E R T Y U I O P {bksp}',
+                'A S D F G H J K L {accept}',
+                '{s} Z X C V B N M ! ? {s}',
+                '{meta1} {space}'
+            ],
+            'meta1': [
+                '1 2 3 4 5 6 7 8 9 0 {bksp}',
+                '- / : ; ( ) \u20ac & @ {accept}',
+                '{meta2} . , ? ! \' " {meta2}',
+                '{normal} {space} '
+            ],
+            'meta2': [
+                '[ ] { } # % ^ * + = {bksp}',
+                '_ \\ | ~ < > $ \u00a3 \u00a5 {accept}',
+                '{meta1} . , ? ! \' " {meta1}',
+                '{normal} {space}'
+            ]
+        }
+    
+            })
+            console.log("worked")
+        </script>
+        <script src="{% static 'js/newdate.js' %}"></script>
+    </body>
+
+</html>
